@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
+  basePath: '/v0-luckystarlabel',
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -15,9 +17,6 @@ const nextConfig = {
       },
     ],
   },
-  // Remove the 'export' line below if deploying to Vercel (it's optimized for server-side rendering)
-  // Uncomment it only for static exports (GitHub Pages, etc.)
-  // output: 'export',
 }
 
 export default nextConfig

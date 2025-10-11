@@ -1,30 +1,22 @@
-# luckystarlabel
+# luckyStar* - Independent Music Label
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+A modern music label website featuring artist showcases and achievements.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/sharkieraymanjr1-5372s-projects/v0-luckystarlabel)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/projects/KPvZ09onfjh)
+## Live Site
 
-## Overview
+Visit the live site at: **https://vyrene.github.io/v0-luckystarlabel/**
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+## Development
+
+This is a Next.js project. To run locally:
+
+\`\`\`bash
+npm install
+npm run dev
+\`\`\`
+
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 ## Deployment
 
-Your project is live at:
-
-**[https://vercel.com/sharkieraymanjr1-5372s-projects/v0-luckystarlabel](https://vercel.com/sharkieraymanjr1-5372s-projects/v0-luckystarlabel)**
-
-## Build your app
-
-Continue building your app on:
-
-**[https://v0.app/chat/projects/KPvZ09onfjh](https://v0.app/chat/projects/KPvZ09onfjh)**
-
-## How It Works
-
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+This site is automatically deployed to GitHub Pages via GitHub Actions whenever changes are pushed to the main branch.
