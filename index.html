@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>luckyStar* - Independent Music Label</title>
+    <meta name="description" content="luckyStar is an independent music label championing boundary-pushing artists across electronic, indie, hip-hop, and experimental genres.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Courier New", monospace;
+            overflow-x: hidden;
+            background-color: #0a0a0a;
+            color: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .top-nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            z-index: 1000;
+            background: #0a0a0a;
+            padding: 1.5rem 3rem;
+            display: flex;
+            gap: 3rem;
+        }
+
+        .top-nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            letter-spacing: 0.1em;
+            transition: opacity 0.3s ease;
+        }
+
+        .top-nav a:hover {
+            opacity: 0.6;
+        }
+
+        .split-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .left-panel {
+            background: #1a1a1a;
+            color: #ffffff;
+            width: 50%;
+            padding: 3rem;
+            overflow-y: auto;
+            height: 100vh;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .left-panel.transitioning {
+            opacity: 0;
+        }
+
+        .left-panel::-webkit-scrollbar {
+            display: none;
+        }
+
+        .right-panel {
+            background: #0a0a0a;
+            color: #ffffff;
+            width: 50%;
+            padding: 3rem;
+            overflow-y: auto;
+            height: 100vh;
+            position: fixed;
+            right: 0;
+            top: 0;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .right-panel::-webkit-scrollbar {
+            display: none;
+        }
+
+        .underline-link {
+            text-decoration: underline;
+            transition: opacity 0.3s ease;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-family: inherit;
+            font-size: inherit;
+            padding: 0;
+        }
+
+        .underline-link:hover {
+            opacity: 0.6;
+        }
+
+        .achievement-item {
+            margin-bottom: 4rem;
+        }
+
+        .achievement-number {
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+            opacity: 0.6;
+        }
+
+        .achievement-title {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+
+        .achievement-meta {
+            font-size: 0.875rem;
+            opacity: 0.6;
+            line-height: 1.6;
+        }
+
+        .achievement-image {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            margin-top: 1rem;
+            display: block;
+        }
+
+        .label-section {
+            margin-bottom: 3rem;
+        }
+
+        .label-section h2 {
+            font-size: 1.125rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        .label-section p {
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            font-size: 0.9375rem;
+        }
+
+        .contact-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item h3 {
+            font-size: 0.9375rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item a {
+            text-decoration: underline;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+            color: #ffffff;
+        }
+
+        .contact-item a:hover {
+            opacity: 1;
+        }
+
+        .artist-profile {
+            margin-bottom: 6rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .artist-profile.reverse {
+            direction: rtl;
+        }
+
+        .artist-profile.reverse > * {
+            direction: ltr;
+        }
+
+        .artist-info h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        .artist-info p {
+            font-size: 0.9375rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .artist-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .page-header h1 {
+            font-size: 2rem;
+            font-weight: bold;
+            letter-spacing: 0.1em;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .justify-between {
+            justify-content: space-between;
+        }
+
+        .items-start {
+            align-items: flex-start;
+        }
+
+        .gap-6 {
+            gap: 1.5rem;
+        }
+
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+
+        .mb-8 {
+            margin-bottom: 2rem;
+        }
+
+        .mb-12 {
+            margin-bottom: 3rem;
+        }
+
+        .mt-4 {
+            margin-top: 1rem;
+        }
+
+        .mt-8 {
+            margin-top: 2rem;
+        }
+
+        .mt-16 {
+            margin-top: 4rem;
+        }
+
+        .pt-8 {
+            padding-top: 2rem;
+        }
+
+        .border-t {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .text-xl {
+            font-size: 1.25rem;
+        }
+
+        .text-sm {
+            font-size: 0.875rem;
+        }
+
+        .text-xs {
+            font-size: 0.75rem;
+        }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .font-bold {
+            font-weight: bold;
+        }
+
+        .tracking-wide {
+            letter-spacing: 0.05em;
+        }
+
+        .leading-relaxed {
+            line-height: 1.625;
+        }
+
+        .opacity-60 {
+            opacity: 0.6;
+        }
+
+        @media (max-width: 1024px) {
+            .split-container {
+                flex-direction: column;
+            }
+
+            .left-panel {
+                width: 100%;
+                height: auto;
+                min-height: 100vh;
+            }
+
+            .right-panel {
+                width: 100%;
+                position: relative;
+                height: auto;
+                padding-top: 3rem;
+            }
+
+            .top-nav {
+                padding: 1rem 2rem;
+                gap: 2rem;
+            }
+
+            .artist-profile {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .artist-profile.reverse {
+                direction: ltr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .left-panel,
+            .right-panel {
+                padding: 1.5rem;
+            }
+
+            .top-nav {
+                padding: 1rem 1.5rem;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="top-nav">
+        <a href="#artists">ARTISTS</a>
+        <a href="#contact">CONTACT</a>
+    </nav>
+
+    <div class="split-container">
+        <div class="left-panel" id="leftPanel">
+            <div id="aboutPage">
+                <header class="mb-12">
+                    <div class="flex justify-between items-start mb-8">
+                        <h1 class="text-xl font-bold tracking-wide">ABOUT OUR LABEL</h1>
+                        <button onclick="switchPage(true)" class="underline-link text-sm text-left">
+                            Artist Roster<br>(2020–2025)
+                        </button>
+                    </div>
+                    <p class="text-sm leading-relaxed mb-4">
+                        luckyStar is an independent music label championing boundary-pushing artists across electronic, indie,
+                        hip-hop, and experimental genres. We provide creative freedom and strategic support to visionary
+                        musicians.
+                    </p>
+                    <p class="text-sm leading-relaxed opacity-60">↳Recent Achievements</p>
+                </header>
+
+                <section>
+                    <div class="achievement-item">
+                        <div class="achievement-number">[01]</div>
+                        <div class="achievement-title">
+                            <strong>Suzy Sheer's 'Blissed' has now amassed over 4.47 Million Streams Worldwide!</strong>
+                        </div>
+                        <div class="achievement-meta">
+                            Blissed, distributed by luckyStar* Media has garnered lots of attention from electronic artists and
+                            has been featured on multiple Electronic playlists via Spotify.
+                        </div>
+                        <img src="/images/a1495968349-10-3000x3000.jpg" alt="Suzy Sheer Blissed" class="achievement-image">
+                    </div>
+
+
+
+                    <div class="achievement-item">
+                        <div class="achievement-number">[03]</div>
+                        <div class="achievement-title">
+                            <strong>Bassvictim's Basspunk receives massive media attention</strong>
+                        </div>
+                        <div class="achievement-meta">
+                            "Decoded" recognized for innovative production and lyrical depth<br>— Award, Recognition, November 2024
+                        </div>
+                        <img src="/images/03.jpg" alt="Bassvictim Basspunk" class="achievement-image">
+                    </div>
+
+                    <div class="achievement-item">
+                        <div class="achievement-number">[04]</div>
+                        <div class="achievement-title">
+                            <strong>Meat computer - help, im falling out now!</strong>
+                        </div>
+                        <div class="achievement-meta">
+                            Meat computer's help, I'm falling has been widely received as an inspirational electronic
+                            masterpiece. Distributed by luckyStar media ltd.
+                        </div>
+                        <img src="/images/04.jpg" alt="Meat computer help im falling" class="achievement-image">
+                    </div>
+                </section>
+
+                <footer class="mt-16 pt-8 border-t">
+                    <p class="text-xs opacity-60">© 2025 luckyStar*. All rights reserved.</p>
+                </footer>
+            </div>
+
+            <div id="artistRosterPage" class="hidden">
+                <header class="mb-12">
+                    <div class="flex justify-between items-start mb-8">
+                        <button onclick="switchPage(false)" class="underline-link text-sm">← Back to About</button>
+                    </div>
+                </header>
+
+                <div class="page-header">
+                    <h1>FEATURED ARTISTS</h1>
+                </div>
+
+                <section>
+                    <div class="artist-profile">
+                        <div class="artist-info">
+                            <h3>SUZY SHEER</h3>
+                            <p>
+                                Ethereal soundscapes and intricate production define Suzy Sheer's signature style. Their
+                                ambient electronic compositions create immersive sonic experiences that transport listeners to
+                                otherworldly dimensions.
+                            </p>
+                            <iframe style="border-radius: 12px;" src="https://open.spotify.com/embed/artist/50p44UTSqyTs7BBHCeQq2V?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        </div>
+                        <div class="artist-image-container">
+                            <img src="/images/suzy-20sheer.jpg" alt="Suzy Sheer" class="artist-image">
+                        </div>
+                    </div>
+
+                    <div class="artist-profile reverse">
+                        <div class="artist-info">
+                            <h3>BASSVICTIM</h3>
+                            <p>
+                                Raw energy meets melodic sophistication in Bassvictim's indie rock sound. Their dynamic
+                                performances and emotionally charged songwriting have captivated audiences across Europe's
+                                biggest festival stages.
+                            </p>
+                            <iframe style="border-radius: 12px;" src="https://open.spotify.com/embed/artist/7f8ydynRRnrJBqWxevKLcM?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        </div>
+                        <div class="artist-image-container">
+                            <img src="/images/bassvictim.jpg" alt="Bassvictim" class="artist-image">
+                        </div>
+                    </div>
+
+                    <div class="artist-profile">
+                        <div class="artist-info">
+                            <h3>MEAT COMPUTER</h3>
+                            <p>
+                                Timeless grooves with contemporary flair define Meat Computer's jazz / soul approach. His
+                                emotive and sophisticated compositions have earned him a dedicated following.
+                            </p>
+                            <iframe style="border-radius: 12px;" src="https://open.spotify.com/embed/artist/7JU13ATc2v3kzIuSqNNPWN?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        </div>
+                        <div class="artist-image-container">
+                            <img src="/images/meat-20computer.jpg" alt="Meat Computer" class="artist-image">
+                        </div>
+                    </div>
+
+                    <div class="artist-profile">
+                        <div class="artist-info">
+                            <h3>BENLAB CRIMSON</h3>
+                            <p>
+                                Genre-defying pop with artistic depth defines Benlab Crimson's alternative pop approach. His
+                                innovative and thought-provoking music has earned him recognition in the industry.
+                            </p>
+                            <iframe style="border-radius: 12px;" src="https://open.spotify.com/embed/artist/57MilooYdDaY4sv2VgXNse?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        </div>
+                        <div class="artist-image-container">
+                            <img src="/images/benalb-1plsq.jpg" alt="Benlab Crimson" class="artist-image">
+                        </div>
+                    </div>
+                </section>
+
+                <footer class="mt-16 pt-8 border-t">
+                    <p class="text-xs opacity-60">© 2025 luckyStar*. All rights reserved.</p>
+                </footer>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <header class="mb-12">
+                <h1 class="text-xl font-bold tracking-wide">luckyStar* ✬</h1>
+            </header>
+
+            <section class="label-section">
+                <h2>OUR PHILOSOPHY</h2>
+                <p>
+                    Founded in 2020, luckyStar emerged from a simple belief: exceptional music deserves exceptional support.
+                    We're an independent label that champions artists who dare to push boundaries and redefine genres.
+                </p>
+                <p>
+                    Our approach is artist-first. We provide creative freedom, strategic guidance, and the resources needed to
+                    bring bold visions to life. From production to distribution, we're partners in the journey, not just
+                    gatekeepers.
+                </p>
+                <p>
+                    Based between London and Berlin, we work with a diverse roster of talent spanning electronic, indie,
+                    hip-hop, jazz, and experimental music. What unites our artists isn't genre—it's a commitment to
+                    authenticity and innovation.
+                </p>
+            </section>
+
+            <section class="label-section">
+                <h2>WHAT WE OFFER</h2>
+                <p>
+                    <strong>Creative Freedom</strong><br>
+                    Complete artistic control over your music, visuals, and brand identity. We support your vision, not
+                    dictate it.
+                </p>
+                <p>
+                    <strong>Strategic Support</strong><br>
+                    Expert guidance on release strategy, marketing, touring, and career development from industry veterans.
+                </p>
+                <p>
+                    <strong>Production Resources</strong><br>
+                    Access to world-class studios, producers, mixing engineers, and mastering facilities across Europe.
+                </p>
+                <p>
+                    <strong>Distribution & Promotion</strong><br>
+                    Global digital distribution, playlist pitching, radio promotion, and PR campaigns tailored to your
+                    audience.
+                </p>
+                <p>
+                    <strong>Fair Deals</strong><br>
+                    Transparent contracts with artist-friendly terms. You keep your masters and publishing rights.
+                </p>
+            </section>
+
+            <section class="label-section" id="artists">
+                <h2>CURRENT ROSTER</h2>
+                <p>
+                    <strong>Suzy Sheer</strong> — Electronic / Ambient<br>
+                    Ethereal soundscapes and intricate production
+                </p>
+                <p>
+                    <strong>Bassvictim</strong> — Indie Rock<br>
+                    Raw energy meets melodic sophistication
+                </p>
+                <p>
+                    <strong>Sickboyrari</strong> — Hip Hop / Experimental<br>
+                    Boundary-pushing beats and conscious lyricism, also known as Teezy F Babyisrael
+                </p>
+                <p>
+                    <strong>Meat Computer</strong> — Jazz / Soul<br>
+                    Timeless grooves with contemporary flair
+                </p>
+                <p>
+                    <strong>Benlab Crimson</strong> — Alternative Pop<br>
+                    Genre-defying pop with artistic depth
+                </p>
+            </section>
+
+            <section class="label-section" id="contact">
+                <h2>GET IN TOUCH</h2>
+
+                <div class="contact-item">
+                    <h3>General Inquiries</h3>
+                    <a href="mailto:info@luckystar.icu">info@luckystar.icu</a><br>
+                    <span class="opacity-60">+44 20 1234 5678</span>
+                </div>
+
+                <div class="contact-item">
+                    <h3>Demo Submissions</h3>
+                    <a href="mailto:demos@luckystar.icu">demos@luckystar.icu</a><br>
+                    <span class="opacity-60 text-sm">We listen to every submission</span>
+                </div>
+
+                <div class="contact-item">
+                    <h3>Press & Media</h3>
+                    <a href="mailto:press@luckystar.icu">press@luckystar.icu</a>
+                </div>
+
+                <div class="contact-item">
+                    <h3>Follow Us</h3>
+                    <div class="flex gap-6">
+                        <a href="https://instagram.com" class="underline-link">Instagram</a>
+                        <a href="https://twitter.com" class="underline-link">Twitter</a>
+                        <a href="https://spotify.com" class="underline-link">Spotify</a>
+                    </div>
+                </div>
+
+                <div class="contact-item mt-8">
+                    <h3>Offices</h3>
+                    <p class="opacity-60 text-sm leading-relaxed">
+                        London, UK<br>
+                        Berlin, Germany
+                    </p>
+                </div>
+            </section>
+
+            <footer class="mt-16 pt-8 border-t">
+                <p class="text-xs opacity-60">Est. 2020 — Independent Music Label</p>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        function switchPage(showArtists) {
+            const leftPanel = document.getElementById('leftPanel');
+            const aboutPage = document.getElementById('aboutPage');
+            const artistRosterPage = document.getElementById('artistRosterPage');
+
+            leftPanel.classList.add('transitioning');
+
+            setTimeout(() => {
+                if (showArtists) {
+                    aboutPage.classList.add('hidden');
+                    artistRosterPage.classList.remove('hidden');
+                } else {
+                    artistRosterPage.classList.add('hidden');
+                    aboutPage.classList.remove('hidden');
+                }
+
+                setTimeout(() => {
+                    leftPanel.classList.remove('transitioning');
+                }, 50);
+            }, 300);
+        }
+    </script>
+</body>
+</html>
