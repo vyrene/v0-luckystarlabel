@@ -64,7 +64,7 @@ export default function Home() {
                     has been featured on multiple Electronic playlists via Spotify.
                   </div>
                   <Image
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/a1495968349_10-3000x3000-jUZX0tpZDD2TTD5G4H90oUONLfm5XN.jpg"
+                    src="/images/a1495968349-10-3000x3000.jpg"
                     alt="Suzy Sheer Blissed"
                     width={500}
                     height={500}
@@ -75,24 +75,6 @@ export default function Home() {
                 <div className="achievement-item">
                   <div className="achievement-number">[02]</div>
                   <div className="achievement-title">
-                    <strong>Sickboyrari performs &quot;City Of Doves&quot; live</strong>
-                  </div>
-                  <div className="achievement-meta">
-                    Main stage performance to 40,000+ attendees, BBC Radio 1 live broadcast
-                    <br />— Live Performance, Festival, June 2024
-                  </div>
-                  <Image
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/02-Q9J2PUoT4QYwhqcCwotAxAYgZsCXvq.jpg"
-                    alt="Sickboyrari City Of Doves"
-                    width={500}
-                    height={500}
-                    className="achievement-image mt-4"
-                  />
-                </div>
-
-                <div className="achievement-item">
-                  <div className="achievement-number">[03]</div>
-                  <div className="achievement-title">
                     <strong>Bassvictim&apos;s Basspunk receives massive media attention</strong>
                   </div>
                   <div className="achievement-meta">
@@ -100,7 +82,7 @@ export default function Home() {
                     <br />— Award, Recognition, November 2024
                   </div>
                   <Image
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/03-PXKWhcIllrMBCrIRoHHzV2whEZdCjJ.jpg"
+                    src="/images/03.jpg"
                     alt="Bassvictim Basspunk"
                     width={500}
                     height={500}
@@ -118,7 +100,7 @@ export default function Home() {
                     masterpiece. Distributed by luckyStar media ltd.
                   </div>
                   <Image
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/04-UNOu6QuK17xp357jZB5sOY4MxbfpMz.jpg"
+                    src="/images/04.jpg"
                     alt="Meat computer help im falling"
                     width={500}
                     height={500}
@@ -167,7 +149,7 @@ export default function Home() {
                   </div>
                   <div className="artist-image-container">
                     <Image
-                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/suzy%20Sheer-cW12gbiCyeF8xttHfS0PrIczxkO954.jpg"
+                      src="/images/suzy-20sheer.jpg"
                       alt="Suzy Sheer"
                       width={600}
                       height={600}
@@ -197,7 +179,7 @@ export default function Home() {
                   </div>
                   <div className="artist-image-container">
                     <Image
-                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/bassvictim-N1VYySyE3ZtliUo7WuiSbd5zJd1HjD.jpg"
+                      src="/images/bassvictim.jpg"
                       alt="Bassvictim"
                       width={600}
                       height={600}
@@ -207,36 +189,6 @@ export default function Home() {
                 </div>
 
                 <div className="artist-profile">
-                  <div className="artist-info">
-                    <h3>SICKBOYRARI</h3>
-                    <p>
-                      Boundary-pushing beats and conscious lyricism define Sickboyrari&apos;s experimental hip-hop
-                      approach, also known as Teezy F Babyisrael. His innovative production techniques and
-                      thought-provoking narratives have earned critical acclaim and industry recognition.
-                    </p>
-                    <iframe
-                      style={{ borderRadius: "12px" }}
-                      src="https://open.spotify.com/embed/artist/395BAMokcNaqWcCl8uU1ky?utm_source=generator"
-                      width="100%"
-                      height="352"
-                      frameBorder="0"
-                      allowFullScreen
-                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                      loading="lazy"
-                    ></iframe>
-                  </div>
-                  <div className="artist-image-container">
-                    <Image
-                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/sickboyrari-uTadLel7Nr6rLkamkbl6m6QDcR6Px0.jpg"
-                      alt="Sickboyrari"
-                      width={600}
-                      height={600}
-                      className="artist-image"
-                    />
-                  </div>
-                </div>
-
-                <div className="artist-profile reverse">
                   <div className="artist-info">
                     <h3>MEAT COMPUTER</h3>
                     <p>
@@ -256,7 +208,7 @@ export default function Home() {
                   </div>
                   <div className="artist-image-container">
                     <Image
-                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/meat%20computer-UdDRv4IcMhmL9giAzC2r6iJUmjvLz4.jpg"
+                      src="/images/meat-20computer.jpg"
                       alt="Meat Computer"
                       width={600}
                       height={600}
@@ -285,7 +237,7 @@ export default function Home() {
                   </div>
                   <div className="artist-image-container">
                     <Image
-                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/benalb-1plSq.jpg"
+                      src="/images/benalb-1plsq.jpg"
                       alt="Benlab Crimson"
                       width={600}
                       height={600}
@@ -367,11 +319,6 @@ export default function Home() {
               <strong>Bassvictim</strong> — Indie Rock
               <br />
               Raw energy meets melodic sophistication
-            </p>
-            <p>
-              <strong>Sickboyrari</strong> — Hip Hop / Experimental
-              <br />
-              Boundary-pushing beats and conscious lyricism, also known as Teezy F Babyisrael
             </p>
             <p>
               <strong>Meat Computer</strong> — Jazz / Soul
